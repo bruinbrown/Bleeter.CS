@@ -1,6 +1,6 @@
 ﻿/// <reference path="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js" />
 
-//var oauth_token = localStorage.getItem('token');
+var oauth_token = localStorage.getItem('token');
 
 var qs = { key: oauth_token };
 
@@ -28,7 +28,7 @@ controllers.controller('BleetController', function ($scope, $http) {
 });
 
 controllers.controller('UserDetailsController', function ($scope, $http) {
-    $http.get('user/bruinbrown/details').success(function (data) {
+    $http.get('user/details?key=' + oauth_token).success(function (data) {
         console.log('retrieved details');
         $scope.following = data.FollowingCount;
         $scope.followers = data.FollowersCount;
