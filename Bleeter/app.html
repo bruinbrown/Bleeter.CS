@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="bleeter">
+<head>
+    <meta charset="utf-8" />
+    <link href="content/bootstrap.css" rel="stylesheet" />
+    <link href="content/app.css" rel="stylesheet" />
+    <title>Bleeter</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bleeter</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default" ng-controller="UserDetailsController">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>{{displayName}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>{{username}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4>{{bleets}}</h4>
+                                <small>Bleets</small>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>{{followers}}</h4>
+                                <small>Followers</small>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>{{following}}</h4>
+                                <small>Following</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" style="height:125px"/>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none" id="button-container">
+                            <div class="col-md-12">
+                                <div style="float:right; padding-top:5px">
+                                    <span style="padding-right:20px">140</span>
+                                    <button class="btn btn-default" disabled="disabled">Bleet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group" ng-controller="BleetController">
+                        <li class="list-group-item" ng-repeat="bleet in bleets.slice().reverse()">
+                            <div class="container">
+                                <div class="row">
+                                    <h5>{{bleet.Poster}}</h5>
+                                </div>
+                                <div class="row">
+                                    {{bleet.Content}}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <script src="scripts/jquery-1.11.2.js"></script>
+    <script src="scripts/jquery.signalR-2.1.2.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
